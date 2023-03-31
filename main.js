@@ -1,23 +1,11 @@
-const count = 10;
-let array = new Array(count);
+const table = document.createElement('table');
 
-function fillMatrix() {
-    for (let i = 0; i < count; i++) {
-        array[i] = new Array(count);
-        for (let j = 0; j < count; j++) {
-            array[i][j] = i * 10 + j + 1;
-        }
-    }
-}
-function showMatrix() {
-    for (let i = 0; i < count; i++) {
-        for (let j = 0; j < count; j++) {
-            document.write(array[i][j].toString().padStart(10,"\u00A0"));
-        }
-        document.write("<br/>");
+for (let i = 0; i < 10; i++) {
+    const row = table.insertRow();
+    for (let j = 0; j < 10; j++) {
+        const cell = row.insertCell();
+        cell.textContent = i * 10 + j + 1;
     }
 }
 
-fillMatrix();
-showMatrix();
-console.log(array);
+document.body.append(table);
